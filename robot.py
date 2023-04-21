@@ -148,3 +148,23 @@ def left():
     except KeyboardInterrupt:
         print ("\nEnd of program")
 
+
+        
+# Main program logic follows:
+if __name__ == '__main__':
+
+    print ('Program is starting ... ')
+    import sys
+    if len(sys.argv)<2:
+        print ("Parameter error: Please assign the device")
+        exit() 
+    if sys.argv[1] == 'Forward':
+        forward()
+    elif sys.argv[1] == 'Backwards':
+        backwards()
+    elif sys.argv[1] == 'Right': 
+        right()              
+    elif sys.argv[1] == 'Left':   
+        left() 
+
+
