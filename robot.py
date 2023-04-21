@@ -6,21 +6,7 @@ servo=Servo()
 
 
 def forward():
-    servo.setServoAngle(4,0)
-    servo.setServoAngle(3,0)
-    servo.setServoAngle(2,90)
-    
-    servo.setServoAngle(7,0)
-    servo.setServoAngle(6,0)
-    servo.setServoAngle(5,90)
-    
-    servo.setServoAngle(8,0)
-    servo.setServoAngle(9,0)
-    servo.setServoAngle(10,90)
-    
-    servo.setServoAngle(11,0)
-    servo.setServoAngle(12,0)
-    servo.setServoAngle(13,90)
+    # não é necessario definir os angulos iniciais porque no Servo.py já é feito
     
     try:
         for i in range(30): 
