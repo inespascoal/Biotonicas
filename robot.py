@@ -11,7 +11,7 @@ def forward():
     servo.setServoAngle(9,60) # pata da frente direita anda para trás
     servo.setServoAngle(3,120) # para de trás esquerda faz o mesmo
     
-    servo.setServoAngle(2,110) 
+    servo.setServoAngle(2,100) 
     servo.setServoAngle(5,110)
     servo.setServoAngle(10,70)
     servo.setServoAngle(13,70)
