@@ -16,7 +16,7 @@ def forward():
     servo.setServoAngle(10,110)
     servo.setServoAngle(13,110)
     
-    while True:
+    try:
         for i in range(180):
             servo.setServoAngle(3,120-i/3)
             servo.setServoAngle(2,70+i/4) # vai até 100 graus
