@@ -19,7 +19,7 @@ def forward():
     servo.setServoAngle(8,100)
 
 
-     try:
+     while True:
          for i in range(180):
              servo.setServoAngle(3,120-i/3)
              #servo.setServoAngle(2,70+i/8) 
