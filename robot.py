@@ -12,9 +12,9 @@ def forward():
     servo.setServoAngle(3,120) # para de trás esquerda faz o mesmo
     
     servo.setServoAngle(2,90) 
-    servo.setServoAngle(5,60)
+    servo.setServoAngle(5,50)
     servo.setServoAngle(10,90)
-    servo.setServoAngle(13,120)
+    servo.setServoAngle(13,130)
 
         
 
