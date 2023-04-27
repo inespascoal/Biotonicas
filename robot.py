@@ -15,11 +15,6 @@ def forward():
     servo.setServoAngle(5,70)
     servo.setServoAngle(10,110)
     servo.setServoAngle(13,110)
-    
-    
-        print ("\nEnd of program")
-    except KeyboardInterrupt:
-        print ("\nEnd of program")
 
         
 
