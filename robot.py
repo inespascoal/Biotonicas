@@ -18,6 +18,94 @@ def forward():
     servo.setServoAngle(7,75)
     servo.setServoAngle(8,100)
     
+    
+    try:
+         for i in range(30): 
+             servo.setServoAngle(12,90+i) # pata da frente direita levanta
+             servo.setServoAngle(6,90+i) # pata de trás contrária levanta
+             time.sleep(0.001)
+     servo.setServoAngle(2,70) 
+     servo.setServoAngle(5,70)
+     servo.setServoAngle(10,110)
+     servo.setServoAngle(13,110)
+
+     while True:
+         for i in range(180):
+             servo.setServoAngle(3,120-i/3)
+             servo.setServoAngle(2,70+i/4) # vai até 100 graus
+
+         for i in range(30):
+             # para as patas anteriores pousarem no chão
+             servo.setServoAngle(3,90-i) # pata da frente esquerda anda para trás
+             servo.setServoAngle(9,90-i) # para de trás direita faz o mesmo
+             time.sleep(0.01)
+             servo.setServoAngle(12, 120-i/3)
+             servo.setServoAngle(13, 110-i/4) 
+
+         for i in range(60):
+             servo.setServoAngle(3,60+i) # a pata frente esquerda anda para a frente
+             servo.setServoAngle(9,60+i) # a pata trás direita anda para a frente
+
+             servo.setServoAngle(12,120-i) # a pata da frente direita vai para tras
+             servo.setServoAngle(6,120-i) # a pata de trás esquerda vai para tras
+             servo.setServoAngle(6, 60+i/3)
+             servo.setServoAngle(5, 70+i/4)
+
+             if i < 60:
+                 time.sleep(0.1)
+             else:
+                 # isto não dá, tenho a certeza mas nao estou a conseguir, so queria um delay
+                 servo.setServoAngle(9,60+i/3)
+                 servo.setServoAngle(10,110-i/4)
+                 time.sleep(0.1)
+
+         servo.setServoAngle(2, 70)
+         servo.setServoAngle(10,110)
+         servo.setServoAngle(5,70)
+         servo.setServoAngle(13,110)
+
+         for i in range(180):
+             servo.setServoAngle(3,60+i/3)
+             servo.setServoAngle(2,70+i/4) # vai até 100 graus
+
+             servo.setServoAngle(12, 60+i/3)
+             servo.setServoAngle(13, 110-i/4) 
+
+             servo.setServoAngle(9, 60-i/3)
+             servo.setServoAngle(10, 70+i/4)
+
+             if i < 60:
+                 time.sleep(0.1)
+             else:
+                 servo.setServoAngle(6,60+i/3)
+                 servo.setServoAngle(5,110-i/4)
+                 time.sleep(0.1)
+
+         servo.setServoAngle(2, 70)
+         servo.setServoAngle(10,110)
+         servo.setServoAngle(5,70)
+         servo.setServoAngle(13,110)
+
+
+         # aqui estaremos a posição contrária à inicial 
+
+         for i in range(180):
+             # para as patas anteriores pousarem no chão
+             servo.setServoAngle(12,70+i/3)
+             servo.setServoAngle(13,120-i/4) # vai até 100 graus
+             if i < 90:
+                 time.sleep(0.1)
+             else:
+                 servo.setServoAngle(6,60+i/3)
+                 servo.setServoAngle(5,110-i/4)
+                 time.sleep(0.1)
+
+
+         print ("\nEnd of program")
+     except KeyboardInterrupt:
+         print ("\nEnd of program")
+
+    
 
         
 
