@@ -19,9 +19,7 @@ def forward():
     servo.setServoAngle(8,100)
     
 
-    
-
-        
+  
 
 # a partir daqui está mesmo mal xd
      
