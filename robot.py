@@ -17,33 +17,30 @@ def forward():
     servo.setServoAngle(13,143)
     servo.setServoAngle(7,75)
     servo.setServoAngle(8,100)
+    
+    for i in range(180):
+        servo.setServoAngle(3,120-i/3)
+        #servo.setServoAngle(2,70+i/8) 
+        servo.setServoAngle(9,60+i/3) # para de trás direita faz o mesmo
+
+        time.sleep(0.01)
+
+        servo.setServoAngle(12, 120-i/3)
+        #servo.setServoAngle(13, 110-i/4) 
 
 
+        servo.setServoAngle(6,120-i/3) # a pata frente esquerda anda para a frente
 
-     for i in range(180):
-         servo.setServoAngle(3,120-i/3)
-         #servo.setServoAngle(2,70+i/8) 
-         servo.setServoAngle(9,60+i/3) # para de trás direita faz o mesmo
+        servo.setServoAngle(3,60+i/3)
+        #servo.setServoAngle(2,70+i/8) 
+        servo.setServoAngle(9,120-i/3) # para de trás direita faz o mesmo
 
-         time.sleep(0.01)
+        time.sleep(0.01)
 
-         servo.setServoAngle(12, 120-i/3)
-         #servo.setServoAngle(13, 110-i/4) 
+        servo.setServoAngle(12, 60+i/3)
+        #servo.setServoAngle(13, 110-i/4) 
 
-
-         servo.setServoAngle(6,120-i/3) # a pata frente esquerda anda para a frente
-
-           servo.setServoAngle(3,60+i/3)
-         #servo.setServoAngle(2,70+i/8) 
-         servo.setServoAngle(9,120-i/3) # para de trás direita faz o mesmo
-
-         time.sleep(0.01)
-
-         servo.setServoAngle(12, 60+i/3)
-         #servo.setServoAngle(13, 110-i/4) 
-
-
-         servo.setServoAngle(6,120-i/3) # a pata frente esquerda anda para a frente
+        servo.setServoAngle(6,120-i/3) # a pata frente esquerda anda para a frente
 
 
 
