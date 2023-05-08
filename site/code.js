@@ -1,3 +1,23 @@
+//create websocket connection
+const socket = new WebSocket('ws://localhost:5000');
+
+//connection opened
+socket.addEventListener('open', function (event) {
+    console.log('WebSocket connection established');
+});
+
+//connection closed
+socket.addEventListener('close', function (event) {
+    console.log('WebSocket connection closed');
+});
+
+//listen for messages
+socket.addEventListener('message', function (event) {
+    console.log(`Received message from server: ${event.data}`);
+});
+
+
+
 var myCharacteristic;
 
 async function onStartButtonClick() {
@@ -79,6 +99,8 @@ function handleNotifications(event) {
 
   let acc_angles = [];
 
+
+
   // Descoficação de bytes para floats
   for (let i = 0; i < value.byteLength; i += 4) {
     byte1 = value.getUint8(i);
@@ -102,7 +124,7 @@ function handleNotifications(event) {
     acc.push(aux1);
     acc = acc.flat();
   }
-  console.log(acc);
+  //console.log(acc);
 
   // Giroscópio
   for (let i = 3; i < a.length; i += 11) {
@@ -110,7 +132,7 @@ function handleNotifications(event) {
     gyr.push(aux2);
     gyr = gyr.flat();
   }
-  console.log(gyr);
+  //console.log(gyr);
  
 
   // Conversão dados acelerómetro - PARA REVER
@@ -119,21 +141,21 @@ function handleNotifications(event) {
    sum_ax = acc[i] + sum_ax;
    ax_mean = sum_ax / 5;
   }
-  console.log(ax_mean);
+  //console.log(ax_mean);
 
   // média ay
   for (let i = 1; i < acc.length; i += 3) {
    sum_ay = acc[i] + sum_ay;
    ay_mean = sum_ay / 5;
   }
-  console.log(ay_mean);
+  //console.log(ay_mean);
 
   // média az
   for (let i = 2; i < acc.length; i += increment_mean) {
    sum_az = acc[i] + sum_az;
    az_mean = sum_az / 5;
   }
-  console.log(az_mean);
+  //console.log(az_mean);
 
 
   AX = Math.atan(ax_mean / (Math.sqrt(Math.abs(az_mean)) + Math.sqrt(Math.abs(ay_mean))));
@@ -143,7 +165,43 @@ function handleNotifications(event) {
   AZ = Math.atan(az_mean / (Math.sqrt(Math.abs(ax_mean)) + Math.sqrt(Math.abs(ay_mean))));
   acc_angles.push(AZ);
 
-  console.log(acc_angles);
+  //console.log(acc_angles);
 
+  
+//send a msg to the websocket
+const Forward = () => {
+  socket.send("Forward");
+}
 
+const Back = () => {
+  socket.send("Back");
+}
+
+const Right = () => {
+  socket.send("Right");
+}
+
+const Left = () => {
+  socket.send("Left");
+}
+
+  if(AX > 0.6) { 
+    //mandar para python: anda para a frente
+    Forward();
+  }
+
+  if(AX < -0.6) {
+    //anda para tras
+    Back();
+  }
+
+  if(AY > 0.6) {
+    //direita
+    Right();
+  }
+
+  if(AY <-0.45){
+    //esquerda
+    Left();
+  }
 }
