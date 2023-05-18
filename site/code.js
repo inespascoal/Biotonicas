@@ -170,19 +170,19 @@ function handleNotifications(event) {
   
 //send a msg to the websocket
 const Forward = () => {
-  socket.send("Forward");
+  socket.send("0");
 }
 
 const Back = () => {
-  socket.send("Back");
+  socket.send("1");
 }
 
 const Right = () => {
-  socket.send("Right");
+  socket.send("2");
 }
 
 const Left = () => {
-  socket.send("Left");
+  socket.send("3");
 }
 
   if(AX > 0.6) { 
@@ -200,7 +200,7 @@ const Left = () => {
     Right();
   }
 
-  if(AY <-0.45){
+  if(AY <-0.35){
     //esquerda
     Left();
   }
